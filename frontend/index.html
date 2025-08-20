@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Nova - Voice Assistant</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Nova</h1>
+			<p class="subtitle">Your futuristic voice assistant</p>
+		</header>
+
+		<main>
+			<section class="panel">
+				<div class="state" id="state">Ready</div>
+				<div class="mic" id="micBtn" aria-label="Toggle recording" role="button" tabindex="0">
+					<div class="mic-inner"></div>
+				</div>
+				<canvas id="visualizer" width="320" height="60" aria-hidden="true"></canvas>
+				<div class="row">
+					<label class="toggle"><input type="checkbox" id="continuousToggle" /> Continuous</label>
+					<label class="toggle"><input type="checkbox" id="wakeToggle" /> Wake word</label>
+					<input type="text" id="wakeWord" placeholder="Hey Nova" aria-label="Wake word" />
+				</div>
+				<div class="row">
+					<select id="sttLang">
+						<option value="en-US" selected>STT: English (US)</option>
+						<option value="en-GB">STT: English (UK)</option>
+						<option value="hi-IN">STT: Hindi (IN)</option>
+						<option value="es-ES">STT: Spanish (ES)</option>
+					</select>
+					<select id="ttsLang">
+						<option value="en" selected>TTS: English</option>
+						<option value="hi">TTS: Hindi</option>
+						<option value="es">TTS: Spanish</option>
+					</select>
+					<button class="btn" id="applyLang">Apply</button>
+				</div>
+				<div class="upload">
+					<label for="audioFile" class="btn">Upload WAV</label>
+					<input type="file" id="audioFile" accept="audio/wav" />
+				</div>
+			</section>
+
+			<section class="panel transcript">
+				<h2>You said</h2>
+				<p id="youSaid">—</p>
+			</section>
+
+			<section class="panel response">
+				<h2>Assistant says</h2>
+				<p id="assistantSays">—</p>
+				<audio id="replyAudio" autoplay></audio>
+			</section>
+
+			<section class="panel suggestions">
+				<h2>Try</h2>
+				<div class="buttons">
+					<button class="btn ghost" data-cmd="open notepad">Open Notepad</button>
+					<button class="btn ghost" data-cmd="open calculator">Open Calculator</button>
+					<button class="btn ghost" data-cmd="open https://instagram.com">Open Instagram</button>
+					<button class="btn ghost" data-cmd="open C:\\Users\\Public">Open a folder</button>
+					<button class="btn ghost" data-cmd="open vscode">Open VS Code</button>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html> 
